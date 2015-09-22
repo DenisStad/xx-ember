@@ -1,0 +1,51 @@
+{{outlet}}
+
+<div id="page-header">
+  <h1>{{meta.count}} <%= capitalModelName %></h1>
+</div>
+
+<div id="content">
+  <button {{action 'showCreate'}}>
+    Create <%= modelName %>
+  </button>
+  <table class="table">
+    <thead>
+    </thead>
+    <tbody>
+      {{#each model as |instance|}}
+        <tr>
+          <% for(var i in model.attributes) { %>
+          <td>{{instance.<%= i %>}}</td><% } %>
+        </tr>
+        <tr>
+          <td>{{#link-to '<%= modelName %>' instance}}Show{{/link-to}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div class="center-align">
+  {{#each (range 1 numPages) as |page|}}
+    <button {{action 'switchPage' page}}>{{page}}</button>
+  {{/each}}
+</div>
+
+{{#modal-view title="Create <%= modelName %>" register-as=create<%= capitalModelName %>}}
+
+<% for(var i in model.attributes) { %>
+  <div class="form-row">
+    <label>
+      <%= i %>
+      {{input value=<%= modelName %>.<%= i %>}}
+      {{#each <%= modelName %>.errors.<%= i %> as |error|}}
+        {{error.message}}
+      {{/each}}
+    </label>
+  </div>
+<% } %>
+
+  <div class="right-align">
+    <button class="large primary" {{action 'create'}}>Create</button>
+  </div>
+{{/modal-view}}

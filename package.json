@@ -1,6 +1,6 @@
 {
   "name": "xx-ember",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ember frontend for xerxes",
   "main": "serve.js",
   "scripts": {

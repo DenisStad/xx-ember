@@ -6,22 +6,22 @@
 
 
 <div id="content">
-<%= "<\% for (var i in model.attributes) { %\>" %>
+<%- "<\% for (var i in model.attributes) { %\>" %>
   <div class="form-row">
     <label>
-      <%= "<\%= i %\>" %>
-      {{input value=model.<%= "<\%= i %\>" %> disabled=isEditingDisabled }}
+      <%- "<\%= i %\>" %>
+      {{input value=model.<%- "<\%= i %\>" %> disabled=isEditingDisabled }}
       {{#if isEditingDisabled}}
         <span {{action 'edit'}} class="glyphicon glyphicon-edit"></span>
       {{/if}}
       <div class="errors">
-        {{#each model.errors.<%= "<\%= i %\>" %> as |error|}}
+        {{#each model.errors.<%- "<\%= i %\>" %> as |error|}}
           {{error.message}}
         {{/each}}
       </div>
     </label>
   </div>
-<%= "<\% } %\>" %>
+<%- "<\% } %\>" %>
   {{#unless isEditingDisabled}}
     <button {{action 'save'}}>Save</button>
   {{/unless}}

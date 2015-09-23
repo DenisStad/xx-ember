@@ -12,7 +12,7 @@ export default Ember.Route.extend({
   },
   model(params) {
     var that = this;
-    return this.store.query('<%= "<\%= modelName %\>" %>', params).then(function(result) {
+    return this.store.query('<%- "<\%= modelName %\>" %>', params).then(function(result) {
       that.set('meta', result.get('meta'));
       return result;
     });

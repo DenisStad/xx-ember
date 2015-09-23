@@ -1,12 +1,12 @@
 {{outlet}}
 
 <div id="page-header">
-  <h1>{{meta.count}} <%= capitalModelName %></h1>
+  <h1>{{meta.count}} <%= "<%= capitalModelName %>" %></h1>
 </div>
 
 <div id="content">
   <button {{action 'showCreate'}}>
-    Create <%= modelName %>
+    Create <%= "<%= modelName %>" %>
   </button>
   <table class="table">
     <thead>
@@ -14,11 +14,11 @@
     <tbody>
       {{#each model as |instance|}}
         <tr>
-          <% for(var i in model.attributes) { %>
-          <td>{{instance.<%= i %>}}</td><% } %>
+          <%= "<% for(var i in model.attributes) { %>" %>
+          <td>{{instance.<%= "<%= i %>" %>}}</td><%= "<% } %>" %>
         </tr>
         <tr>
-          <td>{{#link-to '<%= modelName %>' instance}}Show{{/link-to}}</td>
+          <td>{{#link-to '<%= "<%= modelName %>" %>' instance}}Show{{/link-to}}</td>
         </tr>
       {{/each}}
     </tbody>
@@ -31,19 +31,19 @@
   {{/each}}
 </div>
 
-{{#modal-view title="Create <%= modelName %>" register-as=create<%= capitalModelName %>}}
+{{#modal-view title="Create <%= "<%= modelName %>" %>" register-as=create<%= "<%= capitalModelName %>" %>}}
 
-<% for(var i in model.attributes) { %>
+<%= "<% for(var i in model.attributes) { %>" %>
   <div class="form-row">
     <label>
-      <%= i %>
-      {{input value=<%= modelName %>.<%= i %>}}
-      {{#each <%= modelName %>.errors.<%= i %> as |error|}}
+      <=% "<%= i %>" %>
+      {{input value=<%= "<%= modelName %>" %>.<%= "<%= i %>" %>}}
+      {{#each <%= "<%= modelName %>" %>.errors.<%= "<%= i %>" %> as |error|}}
         {{error.message}}
       {{/each}}
     </label>
   </div>
-<% } %>
+<%= "<% } %>" %>
 
   <div class="right-align">
     <button class="large primary" {{action 'create'}}>Create</button>

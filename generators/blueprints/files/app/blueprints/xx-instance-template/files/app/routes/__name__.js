@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.findRecord('<%= modelName %>', params.<%= modelName %>_id);
+    return this.store.findRecord('<%= "<%= modelName%>" %>', params.<%= "<%= modelName %>" %>_id);
   }
 });

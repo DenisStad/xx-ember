@@ -11,12 +11,12 @@ export default Ember.Controller.extend({
 
   actions: {
     showCreate() {
-      var <%= modelName %> = this.store.createRecord('<%= modelName %>', {});
-      this.set('<%= modelName %>', <%= modelName %>);
-      this.get('create<%= capitalModelName %>').show();
+      var <%= "<%= modelName %>" %> = this.store.createRecord('<%= "<%= modelName %>" %>', {});
+      this.set('<%= "<%= modelName %>" %>', <%= "<%= modelName %>" %>);
+      this.get('create<%= "<%= capitalModelName %>" %>').show();
     },
     create() {
-      this.get('<%= modelName %>').save();
+      this.get('<%= "<%= modelName %>" %>').save();
     },
     
     switchPage(offset) {

@@ -1,0 +1,51 @@
+{{#if isSignup}}
+  <label>
+    {{#each model.errors.name as |err|}}
+      <span class="errors"> {{err.message}} </span>
+    {{else}}
+      Name
+    {{/each}}
+    {{input type="text" value=model.name}}
+  </label>
+{{/if}}
+
+<label>
+  {{#each model.errors.email as |err|}}
+    <span class="errors"> {{err.message}} </span>
+  {{else}}
+    Email
+  {{/each}}
+  {{input type="email" value=model.email}}
+</label>
+
+<label>
+  {{#each model.errors.password as |err|}}
+    <span class="errors"> {{err.message}} </span>
+  {{else}}
+    Password
+  {{/each}}
+  {{input type="password" value=model.password}}
+</label>
+
+{{#if isSignup}}
+  <label>
+    {{#each model.errors.passwordConfirm as |err|}}
+      <span class="errors"> {{err.message}} </span>
+    {{else}}
+      Confirm password
+    {{/each}}
+    {{input type="password" value=model.passwordConfirm}}
+  </label>
+{{else}}
+  <span class="errors">{{loginError}}</span>
+{{/if}}
+
+<br/>
+<p>
+  <button {{action "signup"}}>
+    {{#if isSignup}}Sign up{{else}}Login{{/if}}
+  </button>
+  <a {{action "toggleSignup"}}>
+    {{#if isSignup}}I have an account{{else}}Create account{{/if}}
+  </a>
+</p>

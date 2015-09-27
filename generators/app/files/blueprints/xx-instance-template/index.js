@@ -1,4 +1,4 @@
-var App = require('./../../../../../app');
+var App = require('./../../../app');
 module.exports = {
   description: 'A standard view for an instance of a model',
   locals: function(options) {

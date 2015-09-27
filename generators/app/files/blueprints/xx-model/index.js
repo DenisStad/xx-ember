@@ -1,4 +1,4 @@
-var App = require('./../../../../../app');
+var App = require('./../../../app');
 module.exports = {
   description: 'A model generator that generates models from xerxes',
 

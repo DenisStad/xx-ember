@@ -14,7 +14,7 @@
     <tbody>
       {{#each model as |instance|}}
         <tr>
-          <%- "<\% for(var i in model.attributes) { %\>" %>
+          <%- "<\% for(var i in model.definition) { %\>" %>
           <td>{{instance.<%- "<\%= i %\>" %>}}</td><%- "<\% } %\>" %>
         </tr>
         <tr>
@@ -33,7 +33,7 @@
 
 {{#modal-view title="Create <%- "<\%= modelName %\>" %>" register-as=create<%- "<\%= capitalModelName %\>" %>}}
 
-<%- "<\% for(var i in model.attributes) { %\>" %>
+<%- "<\% for(var i in model.definition) { %\>" %>
   <div class="form-row">
     <label>
       <=% "<\%= i %\>" %>

@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#if User.loggedInUser}}
+  Hey {{User.loggedInUser.name}}
+  <a href="" {{action "logout"}}>Logout</a>
+<br/>{{/if}}
 
+{{#link-to "login"}}Login/Signup{{/link-to}}
+
+<br/>
 {{outlet}}
